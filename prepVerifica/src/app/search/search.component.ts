@@ -13,27 +13,29 @@ export class SearchComponent implements OnInit {
   obsProd: Observable<Object> | undefined;
   results: any;
 
-  // faccio iniettare lo food service e faccio una ricerca
-  constructor(public food: FoodService) {
-  }
+  constructor(public food: FoodService) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
   submit(query: HTMLInputElement): void {
-
     if (!query.value) {
       return;
     }
     this.query = query.value;
     this.obsProd = this.food.searchProd(this.query);
-    this.obsProd.subscribe(
-      (data) => {
-        this.results = data;
-        console.log(this.results);
-        localStorage.setItem('dataSource', JSON.stringify(this.results));
-      });
+    this.obsProd.subscribe((data: any) => {
+      this.results = data;
+      console.log(this.results);
+    });
+  }
+
+  renderResults(res: any): void {
+    this.results = null;
+    if (res && res.tracks && res.tracks.items) {
+      this.results = res.tracks.items;
+    }
   }
 
 }

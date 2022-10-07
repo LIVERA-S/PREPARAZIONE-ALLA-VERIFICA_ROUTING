@@ -1,13 +1,26 @@
 <div class="container">
-    <h2 class="txt">Find Products</h2>
-    <form>
-      <div class="form-group">
-        <label>Product Name:</label>
-        <input type="text" class="form-control input" #newquery>
-    </div>
-    
-      <button (click)="submit(newquery)" class="btn btn-primary">Search</button>
-    </form>
+  <p>
+    <label class="txt">Product Name:</label><br>
+    <input class="form-control input" type="text" #query><br>
+    <button class="btn btn-primary" (click)="submit(query)">Search</button>
+  </p>
 
-    {{results | json}}
+  <div *ngIf="results">
+    <div class="row">
+      <div class="col-md-3  mb-5" *ngFor="let t of results.products">
+        <div class="thumbnail" style="border: 1px solid black">
+
+          <div class="content">
+            <img src="{{t.image_url}}" class="img-fluid" alt="">
+            <h1 >{{t.brands}}</h1>
+            <a [routerLink]="['/item', t.id]">
+              <span class="ciao" >Find Out More</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </div>
+</div>

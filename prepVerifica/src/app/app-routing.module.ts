@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductComponent } from './product/product.component';
+import { ItemComponent } from './item/item.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: 'search', component: SearchComponent },
-  { path: 'product/:id', component: ProductComponent },
+  { path: 'item/:id', component: ItemComponent },
   /*{ path: '', redirectTo: '/search', pathMatch: 'full' }*/];
 
 @NgModule({
