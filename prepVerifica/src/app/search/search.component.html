@@ -3,11 +3,12 @@
     <label class="txt">Product Name:</label><br>
     <input class="form-control input" type="text" #query><br>
     <button class="btn btn-primary" (click)="submit(query)">Search</button>
+  <button (click)="clear()" class="btn btn-primary" style="margin-left: 10px;">Clear</button>
   </p>
 
   <div *ngIf="results">
     <div class="row">
-      <div class="col-md-3  mb-5" *ngFor="let t of results.products">
+      <div class="col-sm-6 col-md-4 mb-5" *ngFor="let t of results.products">
         <div class="thumbnail" style="border: 1px solid black">
 
           <div class="content">

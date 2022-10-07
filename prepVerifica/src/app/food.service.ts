@@ -13,4 +13,10 @@ export class FoodService {
     let obsProd = this.http.get(url);
     return obsProd;
   }
+
+  searchDet(query: any) {
+    const url = `https://world.openfoodfacts.org/api/v0/product/${query}`;
+    let obsDet = this.http.get(url);
+    return obsDet;
+  }
 }
