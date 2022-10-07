@@ -6,6 +6,8 @@
         <input type="text" class="form-control input" #newquery>
     </div>
     
-      <button (click)="'submit(newquery)'" class="btn btn-primary">Search</button>
+      <button (click)="submit(newquery)" class="btn btn-primary">Search</button>
     </form>
+
+    {{results | json}}
   </div>
